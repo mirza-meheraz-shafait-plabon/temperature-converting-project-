@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        
+        
+        body{
+            padding: 50px 100px;
+        }
+        #container{
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: lemonchiffon;
+            padding: 20px;
+        }
+        .input{
+            font-size: 20px;
+            padding: 10px;
+            width: 200px;
+            margin: 10px;
+            font-weight: 100 bold;
+          text-align: center;  
+            display: inline-block;
+        }
+        .div{
+            display: flex;
+            flex-direction: column;
+        }
+        h1{
+            margin-bottom: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 30px;
+            color: darkblue;
+            text-align: center;
+        }
+        .input div label{
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        label{
+            font-weight: bold;
+            font-size: large;
+            margin-bottom: 10px;
+            color: darkred;
+        }
+        </style>
+</head>
+<body>
+    <h1>This is temperature converter</h1>
+    <div id="container">
+    <div class="input div">
+        <label>Celsius:  </label><br>
+    <input type="number"value="0"id="celsius"class="input">
+
+    </div>
+    <div class="input div">
+        <label>Fahrenheit:  </label><br>
+    <input type="number"value="32" id="fahrenheit"class="input">
+</div>
+    </div>
+    <script>
+        var celsius=document.getElementById("celsius");
+        var fahrenheit=document.getElementById("fahrenheit");
+        celsius.addEventListener("input",function(){
+            console.log("Celsius input changed");
+            let c=this.value;
+            let f=(c*9/5)+32;
+            fahrenheit.value=f;
+            if(!Number.isInteger(f)){
+                f=f.toFixed(2);
+            }
+            fahrenheit.value=f;
+        });
+
+        fahrenheit.addEventListener("input",function(){
+            console.log("Fahrenheit input changed");  
+            let f=this.value;
+            let c=(f-32)*5/9;
+            celsius.value=c;
+            if(!Number.isInteger(c)){
+                c=c.toFixed(2);
+            }
+            celsius.value=c;
+        });
+    </script>
+</body>
+</html>
